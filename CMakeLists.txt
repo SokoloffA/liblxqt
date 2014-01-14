@@ -147,22 +147,34 @@ if(USE_QT5)
     message(STATUS "Building with Qt ${Qt5Core_VERSION_STRING}")
     find_package(Qt5X11Extras REQUIRED QUIET)
     find_package(Qt5LinguistTools REQUIRED QUIET)
+    find_package(Qt5DBus REQUIRED QUIET)
 
     set(LXQT_QT_VERSION "5")
-    set(LXQT_PKG_CONFIG_REQUIRES "Qt5Widgets Qt5Xml")
+    set(LXQT_PKG_CONFIG_REQUIRES "Qt5Core Qt5Widgets Qt5Xml Qt5X11extras Qt5DBus")
+
+    include_directories(${Qt5Core_INCLUDE_DIRS})
+    add_definitions(${Qt5Core_DEFINITIONS})
 
     include_directories(${Qt5Widgets_INCLUDE_DIRS})
     add_definitions(${Qt5Widgets_DEFINITIONS})
 
+    include_directories(${Qt5X11Extras_INCLUDE_DIRS})
+    add_definitions(${Qt5X11Extras_DEFINITIONS})
+	
+    include_directories(${Qt5DBus_INCLUDE_DIRS})
+    add_definitions(${Qt5DBus_DEFINITIONS})
+	
     QT5_WRAP_UI(UIS ${FORMS})
     QT5_ADD_TRANSLATION(QM_FILES ${TS_FILES})
-    #set(CMAKE_CXX_FLAGS
-    #    "${CMAKE_CXX_FLAGS} ${Qt5Widgets_EXECUTABLE_COMPILE_FLAGS}"
-    #)
+    QT5_ADD_DBUS_INTERFACE(SRCS
+        dbus/org.freedesktop.Notifications.xml
+        notifications_interface
+    )
 
-    set(QT_LIBRARIES ${Qt5Widgets_LIBRARIES})
+    set(QT_LIBRARIES ${Qt5Widgets_LIBRARIES} ${QQt5X11Extras_LIBRARIES} ${Qt5DBus_LIBRARIES})
 
-    #find_package(XDGQT5 REQUIRED QUIET)
+    find_package(QT5XDG REQUIRED QUIET)
+    
 else()
     find_package(Qt4 REQUIRED QUIET)
     message(STATUS "Building with Qt ${QTVERSION}")
@@ -183,8 +195,7 @@ endif()
 
 find_package(X11 REQUIRED QUIET)
 
-find_package(xdgqt REQUIRED)
-include(${XDGQT_USE_FILE})
+include(${QTXDG_USE_FILE})
 
 include_directories (
     ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}
@@ -314,7 +325,9 @@ install(EXPORT
 
 include(translatorsinfo/CMakeLists.txt)
 get_translatorsinfo_qrc(translatorsinfo_qrc)
-qt4_add_resources(QRC_CXX_SOURCES ${translatorsinfo_qrc})
+#qt4_add_resources(QRC_CXX_SOURCES ${translatorsinfo_qrc})
+
+set(CMAKE_CXX_FLAGS "-fPIC")
 
 add_library(${LXQT_LIBRARY_NAME}
     SHARED ${PUB_HDRS}

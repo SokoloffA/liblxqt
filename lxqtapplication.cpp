@@ -27,8 +27,8 @@
 
 #include <QtCore/QDir>
 
-#include <xdgqt/XdgIcon>
-#include <xdgqt/XdgDirs>
+#include <qt5xdg/XdgIcon>
+#include <qt5xdg/XdgDirs>
 
 #include "lxqtapplication.h"
 #include "lxqtsettings.h"
@@ -93,12 +93,14 @@ void dbgMessageOutput(QtMsgType type, const char *msg)
 Application::Application(int &argc, char** argv)
     : QApplication(argc, argv)
 {
+/* TODO: Fix this
 #ifdef DEBUG
     qInstallMsgHandler(dbgMessageOutput);
 #else
     if (!qgetenv("RAZOR_DEBUG").isNull())
-        qInstallMsgHandler(dbgMessageOutput);
+        qInstallMessageHandler(dbgMessageOutput);
 #endif
+**/
 
     XdgIcon::setThemeName(Settings::globalSettings()->value("icon_theme").toString());
     setWindowIcon(QIcon(QString(LXQT_SHARE_DIR) + "/graphics/razor_logo.png"));

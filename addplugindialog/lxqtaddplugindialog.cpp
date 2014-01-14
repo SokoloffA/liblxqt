@@ -28,12 +28,12 @@
 
 #include "lxqtaddplugindialog.h"
 #include "ui_lxqtaddplugindialog.h"
-#include <xdgqt/XdgIcon>
-#include <QtGui/QListWidgetItem>
-#include <QtGui/QItemDelegate>
-#include <QtGui/QTextDocument>
+#include <qt5xdg/XdgIcon>
+#include <QListWidgetItem>
+#include <QItemDelegate>
+#include <QTextDocument>
 #include <QStyledItemDelegate>
-#include <QtGui/QIcon>
+#include <QIcon>
 #include <QPainter>
 #include <QDebug>
 #include <QTextBrowser>

@@ -27,7 +27,7 @@
 
 
 #include "technicalinfo.h"
-#include <xdgqt/XdgDirs>
+#include <qt5xdg/XdgDirs>
 #include "lxqttranslator.h"
 
 using namespace LxQt;

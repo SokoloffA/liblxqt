@@ -29,7 +29,7 @@
 #ifndef LXQTPAGESELECTWIDGET_H
 #define LXQTPAGESELECTWIDGET_H
 
-#include <QtGui/QListWidget>
+#include <QListWidget>
 namespace LxQt
 {
 
