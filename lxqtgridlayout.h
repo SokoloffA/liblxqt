@@ -29,8 +29,8 @@
 #ifndef LXQTGRIDLAYOUT_H
 #define LXQTGRIDLAYOUT_H
 
-#include <QtGui/QLayout>
-#include <QtCore/QList>
+#include <QLayout>
+#include <QList>
 
 namespace LxQt
 {

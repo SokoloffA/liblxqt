@@ -30,7 +30,7 @@
 #define LXQTPOWER_PROVIDERS_H
 
 #include <QtCore/QObject>
-#include <lxqtsettings.h>
+#include "lxqtsettings.h"
 #include "lxqtpower.h"
 
 namespace LxQt

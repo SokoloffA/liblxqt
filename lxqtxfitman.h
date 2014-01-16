@@ -29,10 +29,10 @@
 #ifndef LXQTXFITMAN_H
 #define LXQTXFITMAN_H
 
-#include <QtCore/QList>
-#include <QtGui/QPixmap>
-#include <QtCore/QString>
-#include <QtCore/QMap>
+#include <QList>
+#include <QPixmap>
+#include <QString>
+#include <QMap>
 #include <X11/Xlib.h>
 
 //some net_wm state-operations we need here

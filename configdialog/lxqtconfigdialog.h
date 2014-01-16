@@ -25,10 +25,10 @@
 #ifndef LXQTCONFIGDIALOG_H
 #define LXQTCONFIGDIALOG_H
 
-#include <lxqtsettings.h>
+#include "lxqtsettings.h"
 
-#include <QtGui/QDialog>
-#include <QtGui/QAbstractButton>
+#include <QDialog>
+#include <QAbstractButton>
 
 namespace Ui {
 class ConfigDialog;

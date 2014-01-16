@@ -28,11 +28,11 @@
 
 
 
-#include <QtGui/QX11Info>
-#include <QtCore/QList>
-#include <QtGui/QApplication>
-#include <QtCore/QDebug>
-#include <QtGui/QDesktopWidget>
+#include <QX11Info>
+#include <QList>
+#include <QApplication>
+#include <QDebug>
+#include <QDesktopWidget>
 
 #include <stdint.h>
 #include "lxqtxfitman.h"
@@ -44,8 +44,8 @@
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 
-#include <QtGui/QWidget>
-#include <QtGui/QIcon>
+#include <QWidget>
+#include <QIcon>
 /**
  * @file xfitman.cpp
  * @brief implements class Xfitman
