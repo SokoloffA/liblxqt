@@ -30,7 +30,7 @@
 #define LXQTADDPLUGINDIALOG_H
 
 #include <QDialog>
-#include <lxqtplugininfo.h>
+#include "lxqtplugininfo.h"
 
 #define SEARCH_DELAY 125
 
